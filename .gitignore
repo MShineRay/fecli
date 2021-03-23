@@ -1,0 +1,6 @@
+# IntelliJ project files
+.idea
+*.iml
+README.bk.md
+
+# description git忽略文件

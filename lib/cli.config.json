@@ -1,0 +1,24 @@
+{
+  "choices": [
+    {
+      "value": "template-pc-vue-el",
+      "url": "direct:https://github.com/MShineRay/learnVueCli",
+      "name": "test 模板"
+    },
+    {
+      "value": "template-wap-vue-vant",
+      "url": "direct:",
+      "name": "移动端vue vant 模板"
+    },
+    {
+      "value": "template-wap-vue-mint",
+      "url": "direct:",
+      "name": "移动端vue mint 模板"
+    },
+    {
+      "value": "template-node-serve-express",
+      "url": "direct:",
+      "name": "服务端node express 模板"
+    }
+  ]
+}

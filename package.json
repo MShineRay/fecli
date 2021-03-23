@@ -1,0 +1,37 @@
+{
+  "name": "fecli",
+  "version": "0.0.1",
+  "fecli-version": "0.0.1",
+  "description": "Front-End Command Line Interface",
+  "bin": {
+    "fe": "bin/fecli.js"
+  },
+  "scripts": {
+    "fe": "node bin/fecli.js"
+  },
+  "author": "MShineRay",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^4.0.1",
+    "directory-tree": "^2.2.4",
+    "download-git-repo": "^3.0.2",
+    "envinfo": "^7.5.0",
+    "handlebars": "^4.5.3",
+    "inquirer": "^7.0.0",
+    "ora": "^4.0.3",
+    "recursive-readdir": "^2.2.2",
+    "semver": "^6.3.0",
+    "walk": "^2.3.14"
+  },
+  "engines": {
+    "node": ">=8.9"
+  },
+  "keywords": [
+    "fecli",
+    "cli"
+  ],
+  "devDependencies": {
+    "archive-type": "^4.0.0",
+    "bl": "^4.1.0"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "dir-structure",
+  "version": "0.0.1",
+  "description": "前端脚手架模板校验规则之基础校验",
+  "config": {
+    "node_modules": true,
+    "dir-name": true,
+    "file-name": true,
+    "package.json": true,
+    "file-size": true
+  }
+}
