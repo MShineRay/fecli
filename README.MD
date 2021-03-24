@@ -38,7 +38,6 @@ Front-End Command Line Interface
  * [npm发布注意事项](https://blog.csdn.net/gamesdev/article/details/49018629)
  * npm 发布时，需要更改package.json中的版本
  * cli中的模板download的路径，详细阅读对应API
- * [使用 Node.js 开发简单的脚手架工具](https://mp.weixin.qq.com/s/o4D4DI59GzdeI8KTp0RGuA)
  * [@vue/cli](https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli)
  * [从0开始发布一个无依赖、高质量的 npm 包](https://mp.weixin.qq.com/s/0oDXwz-SBoh3mEymlNxh7w)
  * [前端进阶（13） - 搭建自己的前端脚手架](https://segmentfault.com/a/1190000016481132)
