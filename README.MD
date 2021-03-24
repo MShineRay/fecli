@@ -20,12 +20,10 @@ Front-End Command Line Interface
     1、npm发布后全局执行
       * npm adduser
       * npm publish
-      * npm install fecli -g
-      * fe init <name>
 
     2、在cli内部调试
       * cd fecli
-      * node index.js init <name>
+      * npm run fe create 
 ~~~
 
 ## rules
