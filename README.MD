@@ -10,7 +10,7 @@ Front-End Command Line Interface
 ## 使用说明
     
 ~~~html
-    npm i -g fecli #全局安装
+    npm i -g @m_shine_ray/fecli #全局安装
     
     fe create #创建项目
 ~~~
