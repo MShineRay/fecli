@@ -41,6 +41,8 @@ Front-End Command Line Interface
  * [@vue/cli](https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli)
  * [从0开始发布一个无依赖、高质量的 npm 包](https://mp.weixin.qq.com/s/0oDXwz-SBoh3mEymlNxh7w)
  * [前端进阶（13） - 搭建自己的前端脚手架](https://segmentfault.com/a/1190000016481132)
+ * [发布npm包时遇到的一些坑](https://www.jianshu.com/p/40f732d91a8c)
+    * npm publish --access public
  
 ## fecli check rules（TODO）
 * 解决方案

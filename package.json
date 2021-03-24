@@ -1,6 +1,6 @@
 {
   "name": "@m_shine_ray/fecli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "fecli-version": "0.0.1",
   "description": "Front-End Command Line Interface",
   "bin": {
