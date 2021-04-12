@@ -4,7 +4,6 @@ Front-End Command Line Interface
 ## 用途
 ~~~html
     1、fe template (项目模板选择工具)方便开发人员根据业务选择对应的前端基础代码（脚手架）
-    2、fe check（项目检测工具）
 ~~~
     
 ## 使用说明
