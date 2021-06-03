@@ -1,19 +1,29 @@
 {
   "choices": [
     {
-      "value": "template-pc-vue-elementui",
-      "url": "direct:https://github.com/MShineRay/template-pc-vue-elementui",
-      "name": "PC端vue element-ui 模板"
+      "value": "template-pc-vue2-elementui",
+      "url": "direct:https://github.com/MShineRay/template-pc-vue2-elementui",
+      "name": "template-pc-vue2-elementui(PC、vue2、element-ui)"
     },
     {
-      "value": "template-wap-vue-vant",
-      "url": "direct:https://github.com/MShineRay/template-wap-vue-vant",
-      "name": "移动端vue vant 模板"
+      "value": "template-wap-vue2-vant",
+      "url": "direct:https://github.com/MShineRay/template-wap-vue2-vant",
+      "name": "template-wap-vue2-vant(wap、vue2、vant)"
     },
     {
-      "value": "template-wap-vue-mint",
-      "url": "direct:https://github.com/MShineRay/template-wap-vue-mint",
-      "name": "移动端vue mint 模板"
+      "value": "template-wap-vue2-mint",
+      "url": "direct:https://github.com/MShineRay/template-wap-vue2-mint",
+      "name": "template-wap-vue2-mint(wap、vue2、mint)"
+    },
+    {
+      "value": "template-pc-vue3-elementui",
+      "url": "direct:https://github.com/MShineRay/template-pc-vue3-elementui",
+      "name": "template-pc-vue3(PC、vue3、elementui)"
+    },
+    {
+      "value": "template-wap-vue3-vant",
+      "url": "direct:https://github.com/MShineRay/template-wap-vue3-vant",
+      "name": "template-wap-vue3-vant(wap、vue3、vant)"
     },
     {
       "value": "template-node-serve-express",

@@ -69,9 +69,11 @@ program
       const spinner = ora();
       spinner.start('正在下载模板...');
       let gitUrl = getGitUrl(answers.cliTemplate);
+      console.log('gitUrl:', gitUrl)
       if (gitUrl) {
         download(gitUrl, answers.projectName, {clone: true}, (err) => {
           if (err) {
+            console.log(err)
             spinner.fail(symbols.error);
           } else {
             spinner.succeed();
