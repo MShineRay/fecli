@@ -17,7 +17,7 @@ Front-End Command Line Interface
 ### run && debug cli
 ~~~
     1、npm发布后全局执行
-      * npm adduser
+      * npm adduser # m_shine_ray
       * npm publish
 
     2、在cli内部调试
