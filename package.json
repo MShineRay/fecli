@@ -29,7 +29,7 @@
     "node": ">=8.9"
   },
   "keywords": [
-  "@a2z/cli-sf",
+    "@a2z/cli-sf",
     "fecli",
     "cli"
   ],
