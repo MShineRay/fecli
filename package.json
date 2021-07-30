@@ -1,13 +1,15 @@
 {
   "name": "@a0znpm/fecli",
-  "version": "0.0.4",
-  "fecli-version": "0.0.4",
+  "version": "0.0.1",
+  "fecli-version": "0.0.1",
   "description": "Front-End Command Line Interface",
   "bin": {
-    "fe": "bin/fecli.js"
+    "fe": "bin/fecli.js",
+    "sf": "bin/sf.js"
   },
   "scripts": {
-    "fe": "node bin/fecli.js"
+    "fe": "node bin/fecli.js",
+    "sf": "node bin/sf.js"
   },
   "author": "MShineRay",
   "license": "MIT",
@@ -27,11 +29,13 @@
     "node": ">=8.9"
   },
   "keywords": [
+  "@a2z/cli-sf",
     "fecli",
     "cli"
   ],
   "devDependencies": {
     "archive-type": "^4.0.0",
-    "bl": "^4.1.0"
+    "bl": "^4.1.0",
+    "cheerio": "^1.0.0-rc.6"
   }
 }

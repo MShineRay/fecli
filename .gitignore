@@ -1,6 +1,8 @@
-# IntelliJ project files
+*.swf
+*.air
+*.ipa
+*.apk
 .idea
 *.iml
 README.bk.md
-
-# description git忽略文件
+dist/

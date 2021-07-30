@@ -5,6 +5,17 @@ Front-End Command Line Interface
 ~~~html
     1、fe template (项目模板选择工具)方便开发人员根据业务选择对应的前端基础代码（脚手架）
 ~~~
+  - fe dir-tree # 生成目录结构书  (项目模板选择工具)方便开发人员根据业务选择对应的前端基础代码（脚手架）
+  - fe parsewxhtml # 精简微信公众号文章
+  - fe lint
+  - fe md 
+    - readme
+  - sf git
+    - .gitignore
+    - .gitkeep
+  - sf file
+  - sf dir
+  - sf check（项目检测工具）
     
 ## 使用说明
     
@@ -12,17 +23,21 @@ Front-End Command Line Interface
     npm i -g @a0znpm/fecli #全局安装
     
     fe create #创建项目
+    fe # 查看支持等命令
+      Commands:
+        parsewxhtml    parse wx html
+        info           print debugging information about your environment
+        dir-tree       generate directory tree under current directory
 ~~~
 
 ### run && debug cli
 ~~~
     1、npm发布后全局执行
       * npm adduser #a0znpm
-      * npm publish
-
+      * npm publish --access public
     2、在cli内部调试
       * cd fecli
-      * npm run fe create 
+      * npm run fe 
 ~~~
 
 ## rules
