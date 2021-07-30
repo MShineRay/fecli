@@ -6,6 +6,11 @@
       "name": "template-pc-vue2-elementui(PC、vue2、element-ui)"
     },
     {
+      "value": "vue-admin-template",
+      "url": "direct:https://github.com/MShineRay/vue-admin-template",
+      "name": "template-pc-vue2-elementui(vue-admin-template)"
+    },
+    {
       "value": "template-wap-vue2-vant",
       "url": "direct:https://github.com/MShineRay/template-wap-vue2-vant",
       "name": "template-wap-vue2-vant(wap、vue2、vant)"

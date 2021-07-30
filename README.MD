@@ -9,7 +9,7 @@ Front-End Command Line Interface
 ## 使用说明
     
 ~~~html
-    npm i -g @m_shine_ray/fecli #全局安装
+    npm i -g @a0znpm/fecli #全局安装
     
     fe create #创建项目
 ~~~
@@ -17,7 +17,7 @@ Front-End Command Line Interface
 ### run && debug cli
 ~~~
     1、npm发布后全局执行
-      * npm adduser # m_shine_ray
+      * npm adduser #a0znpm
       * npm publish
 
     2、在cli内部调试
