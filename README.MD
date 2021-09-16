@@ -30,8 +30,7 @@ Front-End Command Line Interface
         info           print debugging information about your environment
         dir-tree       generate directory tree under current directory
 ~~~
-
-### run && debug cli
+ - run && debug cli
 ~~~
     1、npm发布后全局执行
       * npm adduser #a0znpm

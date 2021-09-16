@@ -33,7 +33,27 @@
     {
       "value": "template-node-serve-express",
       "url": "direct:https://github.com/MShineRay/template-node-serve-express",
-      "name": "服务端node express 模板"
+      "name": "template-node-serve-express"
+    },
+    {
+      "value": "template-vue2-webpack-umd",
+      "url": "direct:https://github.com/MShineRay/template-vue2-webpack-umd",
+      "name": "template-vue2-webpack-umd"
+    },
+    {
+      "value": "template-jslib-rollup",
+      "url": "direct:https://github.com/MShineRay/template-jslib-rollup",
+      "name": "template-jslib-rollup"
+    },
+    {
+      "value": "template-jslib-gulp",
+      "url": "direct:https://github.com/MShineRay/template-jslib-gulp",
+      "name": "template-jslib-gulp"
+    },
+    {
+      "value": "template-web-gulp",
+      "url": "direct:https://github.com/MShineRay/template-web-gulp-mustache",
+      "name": "template-web-gulp(gulp、jquery、require、mustache)"
     }
   ]
 }
