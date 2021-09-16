@@ -1,7 +1,7 @@
 {
   "name": "fecli-template-check-ruler",
   "version": "0.0.1",
-  "description": "前端脚手架模板校验规则之基础校验",
+  "description": "fecli-template-check-ruler 前端脚手架模板校验规则之基础校验",
   "rulers": {
     "dir-structure": true,
     "dir-naming": true,

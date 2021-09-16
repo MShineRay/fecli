@@ -1,12 +1,11 @@
 # fecli 
 Front-End Command Line Interface
    
-## 用途
-~~~html
-    1、fe template (项目模板选择工具)方便开发人员根据业务选择对应的前端基础代码（脚手架）
+### use
 ~~~
-  - fe dir-tree # 生成目录结构书  (项目模板选择工具)方便开发人员根据业务选择对应的前端基础代码（脚手架）
-  - fe parsewxhtml # 精简微信公众号文章
+  - fe create # create FE project by template
+  - fe dir-tree # Generate project directory tree description(directoryTreeDesc.md)
+  - fe parsewxhtml # Streamline WeChat Official Account Articles 精简微信公众号文章
   - fe lint
   - fe md 
     - readme
@@ -15,13 +14,11 @@ Front-End Command Line Interface
     - .gitkeep
   - fe file
   - fe dir
-  - fe check（项目检测工具）
-    
-## install
-    
+  - fe check # check FE projcet
+~~~    
+
+### example
 ~~~
-    npm i -g @a0znpm/fecli 
-    
     fe create # create project
     
     fe 
@@ -30,19 +27,8 @@ Front-End Command Line Interface
         info           print debugging information about your environment
         dir-tree       generate directory tree under current directory
 ~~~
- - run && debug cli
-~~~
-    1、npm发布后全局执行
-      * npm adduser a0znpm
-      * npm publish --access public
-    2、在cli内部调试
-      * cd fecli
-      * npm run fe 
-~~~
 
-
-## Knowledge Point
-
+### Knowledge Point
  - [使用 Node.js 开发简单的脚手架工具](https://mp.weixin.qq.com/s/o4D4DI59GzdeI8KTp0RGuA)
  - [npm发布注意事项](https://blog.csdn.net/gamesdev/article/details/49018629)
  - npm 发布时，需要更改package.json中的版本
