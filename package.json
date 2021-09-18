@@ -29,7 +29,12 @@
     "node": ">=8.9"
   },
   "keywords": [
-    "@a2z/cli-sf",
+    "@a0znpm/fecli",
+    "a0znpm",
+    "@a0znpm",
+    "@a0znpm/cli-sf",
+    "fe",
+    "sf",
     "fecli",
     "cli"
   ],
