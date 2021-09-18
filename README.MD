@@ -1,6 +1,12 @@
 # fecli 
 Front-End Command Line Interface
-   
+
+### Welcome
+Welcome to improve related functions
+
+- [project template](https://github.com/MShineRay?tab=projects)
+- [cli](https://github.com/MShineRay/fecli)
+
 ### use
 ~~~
   - fe create # create FE project by template
@@ -39,3 +45,4 @@ Front-End Command Line Interface
  - [发布npm包时遇到的一些坑](https://www.jianshu.com/p/40f732d91a8c)
     - npm publish --access public
  - [npm docs](https://docs.npmjs.com/cli/v7/using-npm/developers)
+
