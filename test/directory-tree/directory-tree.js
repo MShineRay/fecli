@@ -6,7 +6,7 @@ const directoryTree = require("directory-tree");
 const defaultExclude = /node_modules|wwwroot|.idea|.git|test|dist|mock/;
 const FileUtils = require('../util/fileUtils')
 const NoteUtils = require('../util/note')
-const Utils = require('../util/utils')
+const utils = require('../util/utils')
 /**
  * 获取指定路径的目录结构对象
  * @param path
@@ -148,7 +148,7 @@ async function fileFirstLineData(path) {
   } else {
     return ''
   }
-  
+
 }
 
 // generateDirTreeFile(undefined, '../../')

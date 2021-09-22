@@ -166,8 +166,8 @@ program.on('--help', () => {
 });*/
 
 program
-.command('dir-tree')
-.description(`generate directory tree under current directory`)
+.command('tree')
+.description(`generate directory tree under current directory(more about tree-node-cli)`)
 .action(() => {
   require('../lib/util/directory-tree').generateDirTreeFile();
 });

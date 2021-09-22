@@ -1,7 +1,7 @@
 {
   "name": "@a0znpm/fecli",
-  "version": "0.0.6",
-  "fecli-version": "0.0.6",
+  "version": "0.0.7",
+  "fecli-version": "0.0.7",
   "description": "Front-End Command Line Interface",
   "bin": {
     "fe": "bin/fecli.js",
@@ -41,6 +41,7 @@
   "devDependencies": {
     "archive-type": "^4.0.0",
     "bl": "^4.1.0",
-    "cheerio": "^1.0.0-rc.6"
+    "cheerio": "^1.0.0-rc.6",
+    "tree-node-cli": "^1.4.0"
   }
 }

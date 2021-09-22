@@ -1,4 +1,4 @@
-# fecli 
+# fecli (v0.0.7-Pre-alpha)
 Front-End Command Line Interface
 
 ### Welcome
@@ -14,7 +14,7 @@ npm i @a0znpm/fecli -g
 ### Use
 ~~~
   - fe create # create FE project by template
-  - fe dir-tree # Generate project directory tree description(directoryTreeDesc.md)
+  - fe tree # Generate project directory tree description(directoryTreeDesc.md)
   - fe parsewxhtml # Streamline WeChat Official Account Articles 精简微信公众号文章
   - fe lint
   - fe md 
@@ -33,9 +33,9 @@ npm i @a0znpm/fecli -g
     
     fe 
       Commands:
-        parsewxhtml    parse wx html
+        create         create a new project powered by @a0znpm/fecli
         info           print debugging information about your environment
-        dir-tree       generate directory tree under current directory
+        tree           generate directory tree under current directory(more about tree-node-cli)
 ~~~
 
 ~~~
@@ -54,6 +54,74 @@ npm i @a0znpm/fecli -g
 
 ~~~
 
+
+~~~
+   > fe tree
+   >
+      fecli
+      ├── bin
+      │   ├── fecli.js
+      │   └── sf.js
+      ├── doc
+      │   ├── Q&A.md
+      │   ├── log.md
+      │   ├── rules.md
+      │   └── todo.md
+      ├── lib
+      │   ├── rules
+      │   │   ├── config
+      │   │   │   └── dir-structure.json
+      │   │   └── base.json
+      │   ├── util
+      │   │   ├── checkUtils.js
+      │   │   ├── directory-tree.js
+      │   │   ├── enhanceErrorMessages.js
+      │   │   ├── fileUtils.js
+      │   │   ├── note.js
+      │   │   └── utils.js
+      │   ├── .editorconfig
+      │   ├── .eslintignore
+      │   ├── .eslintrc.js
+      │   ├── .gitignore
+      │   ├── .prettierrc
+      │   └── cli.config.json
+      ├── src
+      │   ├── common
+      │   │   └── .gitkeep
+      │   ├── 1.css
+      │   ├── 1.html
+      │   ├── 1.js
+      │   ├── 1.vue
+      │   └── parseWXHtml.js
+      ├── test
+      │   ├── directory-tree
+      │   │   ├── directory-tree.js
+      │   │   └── directoryTreeDesc.md
+      │   ├── envinfo
+      │   │   └── envinfo.js
+      │   ├── recursive-readdir
+      │   │   └── recursive-readdir.js
+      │   ├── util
+      │   │   ├── fileUtils.js
+      │   │   ├── note.js
+      │   │   └── utils.js
+      │   ├── walk
+      │   │   └── walk.js
+      │   ├── 1.css
+      │   ├── 1.html
+      │   ├── 1.js
+      │   ├── 1.vue
+      │   └── directoryTreeDesc.md
+      ├── .gitignore
+      ├── .npmignore
+      ├── LICENSE
+      ├── README-Inner.MD
+      ├── README.MD
+      ├── index.js
+      ├── package-lock.json
+      └── package.json
+~~~
+
 ### Knowledge Point
  - [使用 Node.js 开发简单的脚手架工具](https://mp.weixin.qq.com/s/o4D4DI59GzdeI8KTp0RGuA)
  - [npm发布注意事项](https://blog.csdn.net/gamesdev/article/details/49018629)
@@ -70,6 +138,7 @@ npm i @a0znpm/fecli -g
     npm install -g tree-node-cli    
     tree -I "node_modules"  --dirs-first
    ~~~
+ - [软件版本周期](https://zh.wikipedia.org/wiki/%E8%BB%9F%E4%BB%B6%E7%89%88%E6%9C%AC%E9%80%B1%E6%9C%9F)
 
 ### License
    [MIT](LICENSE)
