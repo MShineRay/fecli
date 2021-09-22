@@ -67,3 +67,6 @@ Welcome to improve related functions
     tree -I "node_modules"  --dirs-first
    ~~~
 
+### License
+[MIT](LICENSE)
+Copyright (c) 2021-present, MShineRay
