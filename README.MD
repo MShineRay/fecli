@@ -69,4 +69,3 @@ Welcome to improve related functions
 
 ### License
 [MIT](LICENSE)
-Copyright (c) 2021-present, MShineRay
