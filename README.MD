@@ -7,6 +7,10 @@ Welcome to improve related functions
 - [project template](https://github.com/MShineRay?tab=projects)
 - [cli](https://github.com/MShineRay/fecli)
 
+### Install
+~~~
+npm i @a0znpm/fecli -g
+~~~
 ### Use
 ~~~
   - fe create # create FE project by template
