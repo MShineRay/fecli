@@ -1,7 +1,7 @@
 {
   "name": "@a0znpm/fecli",
   "version": "0.0.5",
-  "fecli-version": "0.0.5",
+  "fecli-version": "0.0.6",
   "description": "Front-End Command Line Interface",
   "bin": {
     "fe": "bin/fecli.js",
