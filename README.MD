@@ -34,6 +34,22 @@ Welcome to improve related functions
         dir-tree       generate directory tree under current directory
 ~~~
 
+~~~
+   > fe create
+   >
+      ? Please input your project name testPro
+      ? Please select your project template 
+        template-pc-vue3(PC、vue3、elementui) 
+        template-wap-vue3-vant(wap、vue3、vant) 
+        template-node-serve-express 
+      ❯ template-vue2-webpack-umd 
+        template-jslib-rollup 
+        template-jslib-gulp 
+        template-web-gulp(gulp、jquery、require、mustache) 
+      (Move up and down to reveal more choices)
+
+~~~
+
 ### Knowledge Point
  - [使用 Node.js 开发简单的脚手架工具](https://mp.weixin.qq.com/s/o4D4DI59GzdeI8KTp0RGuA)
  - [npm发布注意事项](https://blog.csdn.net/gamesdev/article/details/49018629)

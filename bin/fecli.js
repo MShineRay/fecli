@@ -56,18 +56,18 @@ program
   inquirer.prompt([
     {
       name: 'projectName',
-      message: '请输入项目名称'
+      message: 'Please input your project name'
     },
     {
       type: "list",
       name: 'cliTemplate',
-      message: '请选择项目脚手架',
+      message: 'Please select your project template',
       choices: choices
     },
   ]).then((answers) => {
     if (!fs.existsSync(answers.projectName)) {
       const spinner = ora();
-      spinner.start('正在下载模板...');
+      spinner.start('download project template...');
       let gitUrl = getGitUrl(answers.cliTemplate);
       if (gitUrl) {
         download(gitUrl, answers.projectName, {clone: true}, (err) => {
@@ -90,13 +90,13 @@ program
               newResult = JSON.stringify(newResult, null, '  ');
               fs.writeFileSync(fileName, newResult);
             }
-            console.log(symbols.success, chalk.green(`项目${ answers.projectName}初始化完成`));
+            console.log(symbols.success, chalk.green(`The project ${ answers.projectName} init success`));
           }
         })
       } else {
         spinner.fail("git url is null");
       }
-      
+
     } else {
       // 错误提示项目已存在，避免覆盖原有项目
       console.log(chalk.red(`初始化项目失败！Error:项目目录${answers.projectName}已存在`));
