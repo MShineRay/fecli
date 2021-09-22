@@ -45,4 +45,9 @@ Welcome to improve related functions
  - [发布npm包时遇到的一些坑](https://www.jianshu.com/p/40f732d91a8c)
     - npm publish --access public
  - [npm docs](https://docs.npmjs.com/cli/v7/using-npm/developers)
+ - [tree-node-cli](https://www.npmjs.com/package/tree-node-cli)
+   ~~~
+    npm install -g tree-node-cli    
+    tree -I "node_modules"  --dirs-first
+   ~~~
 
