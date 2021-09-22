@@ -7,7 +7,7 @@ Welcome to improve related functions
 - [project template](https://github.com/MShineRay?tab=projects)
 - [cli](https://github.com/MShineRay/fecli)
 
-### use
+### Use
 ~~~
   - fe create # create FE project by template
   - fe dir-tree # Generate project directory tree description(directoryTreeDesc.md)
@@ -23,7 +23,7 @@ Welcome to improve related functions
   - fe check # check FE projcet
 ~~~    
 
-### example
+### Example
 ~~~
     fe create # create project
     
