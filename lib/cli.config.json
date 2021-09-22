@@ -3,7 +3,7 @@
     {
       "value": "template-pc-vue2-elementui",
       "url": "direct:https://github.com/MShineRay/template-pc-vue2-elementui",
-      "name": "template-pc-vue2-elementui(PC、vue2、element-ui)"
+      "name": "template-pc-vue2-elementui(pc、vue2、element-ui)"
     },
     {
       "value": "vue-admin-template",
@@ -23,7 +23,7 @@
     {
       "value": "template-pc-vue3-elementui",
       "url": "direct:https://github.com/MShineRay/template-pc-vue3-elementui",
-      "name": "template-pc-vue3(PC、vue3、elementui)"
+      "name": "template-pc-vue3(pc、vue3、elementui)"
     },
     {
       "value": "template-wap-vue3-vant",
