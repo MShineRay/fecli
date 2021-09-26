@@ -33,11 +33,13 @@ const download = require('download-git-repo');
 const inquirer = require('inquirer');//NodeJs交互式命令行工具，询问操作者问题，获取用户输入，校验回答的合法性
 const ora = require('ora');
 const symbols = require('log-symbols');
+const path = require('path')
+const {copyFileByStream, copyDir} = require('../lib/util/fileUtils')
 const config = require('../lib/cli.config.json');
 let choices = config.choices;
-
 const sglConfig = require('../lib/sgl.config.json');
 let sglChoices = sglConfig.choices;
+const rm = require('rimraf').sync
 
 function getGitUrl(choiceVal, configList=choices) {
   for (let i = 0, len = configList.length; i < len; i++) {
@@ -192,18 +194,35 @@ program
   ]).then((answers) => {
     if (!fs.existsSync(answers.sglFunTemplate)) {
       const spinner = ora();
-      spinner.start('download project template...');
       let gitUrl = getGitUrl(answers.sglFunTemplate, sglConfig.choices);
       if (gitUrl) {
-        download(gitUrl, process.cwd(), {clone: true}, (err) => {
-          if (err) {
-            console.log(err)
-            spinner.fail(symbols.error);
-          } else {
-            spinner.succeed();
-            console.log(symbols.success, chalk.green(`The project ${ answers.sglFunTemplate} init success`));
-          }
-        })
+        const fromUrl = path.resolve(__dirname+'/'+sglConfig.cache+'/'+answers.sglFunTemplate)
+        console.log('fromUrl:'+fromUrl)
+        if(fs.existsSync(fromUrl)){ // Cache not invalidated
+          console.log('add the single function template from cache')
+          rm(fromUrl+'/.git')
+          copyDir(fromUrl+'/', process.cwd())
+          // copyFileByStream(fromUrl, process.cwd()+'/'+answers.sglFunTemplate)
+          // spinner.succeed();
+        }else{
+          spinner.start('add the single function template from github...\n');
+          rm(sglConfig.cache + '/'+answers.sglFunTemplate+'/.git')
+          const distDir = path.resolve(sglConfig.cache + '/'+answers.sglFunTemplate)
+          console.log('distDir:' + distDir)
+          download(gitUrl, fromUrl, {clone: true}, (err) => {
+            if (err) {
+              console.log(err)
+              spinner.fail(symbols.error);
+              rm(fromUrl+'/.git')
+              copyDir(fromUrl+'/', process.cwd())
+            } else {
+              rm(fromUrl+'/.git')
+              copyDir(fromUrl+'/', process.cwd())
+              spinner.succeed();
+              console.log(symbols.success, chalk.green(`The project ${ answers.sglFunTemplate} init success`));
+            }
+          })
+        }
       } else {
         spinner.fail("git url is null");
       }
@@ -213,7 +232,6 @@ program
     }
   })
 });
-
 
 
 // enhance common error messages

@@ -2,22 +2,22 @@
   "desc":"single function template",
   "choices": [
     {
-      "value": ".editorconfig",
+      "value": "editorconfig",
       "url": "direct:https://github.com/MShineRay/template-sgl-editorconfig",
       "name": ".editorconfig"
     },
     {
-      "value": ".eslintignore",
+      "value": "eslintignore",
       "url": "direct:https://github.com/MShineRay/template-sgl-eslint",
       "name": "eslint config(.eslintignore、.eslintrc.js)"
     },
     {
-      "value": ".gitignore",
+      "value": "gitignore",
       "url": "direct:https://github.com/MShineRay/template-sgl-gitignore",
       "name": ".gitignore"
     },
     {
-      "value": ".prettierrc",
+      "value": "prettierrc",
       "url": "direct:https://github.com/MShineRay/template-sgl-prettierrc",
       "name": ".prettierrc"
     },
@@ -36,5 +36,6 @@
       "url": "direct:https://github.com/MShineRay/template-sgl-vue-component",
       "name": "vue-component.vue"
     }
-  ]
+  ],
+  "cache":"cache/sglTemplate"
 }
