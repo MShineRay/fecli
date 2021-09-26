@@ -37,5 +37,5 @@
       "name": "vue-component.vue"
     }
   ],
-  "cache":"cache/sglTemplate"
+  "cache":".cache/sglTemplate"
 }

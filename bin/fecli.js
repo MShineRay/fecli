@@ -34,7 +34,7 @@ const inquirer = require('inquirer');//NodeJs交互式命令行工具，询问�
 const ora = require('ora');
 const symbols = require('log-symbols');
 const path = require('path')
-const {copyFileByStream, copyDir} = require('../lib/util/fileUtils')
+const {/*copyFileByStream,*/ copyDir} = require('../lib/util/fileUtils')
 const config = require('../lib/cli.config.json');
 let choices = config.choices;
 const sglConfig = require('../lib/sgl.config.json');
@@ -54,6 +54,7 @@ program
 .version(pkg.version)
 .usage('<command> [options]');
 
+// fe create
 program
 .command('create')
 .description(`create a new project powered by ${pkg.name}`)
@@ -109,7 +110,7 @@ program
   })
 });
 
-
+// fe info
 program
 .command('info')
 .description('print debugging information about your environment')
@@ -153,23 +154,7 @@ program.on('--help', () => {
   console.log()
 });
 
-/*program
-.command('check')
-.description(`check a new project powered by ${pkg.name}`)
-.action(() => {
-  inquirer.prompt([
-    {
-      type: "list",
-      name: 'cliTemplate',
-      message: '请选择待检查的项目脚手架模板',
-      choices: choices
-    },
-  ]).then((answers) => {
-    const spinner = ora();
-    spinner.start('begin check...');
-  })
-});*/
-
+// fe tree
 program
 .command('tree')
 .description(`generate directory tree under current directory(more about tree-node-cli)`)
@@ -178,8 +163,7 @@ program
 });
 program.commands.forEach(c => c.on('--help', () => console.log()));
 
-
-
+// fe inject
 program
 .command('inject')
 .description(`Add single function template to project`)
@@ -217,7 +201,9 @@ program
               copyDir(fromUrl+'/', process.cwd())
             } else {
               rm(fromUrl+'/.git')
-              copyDir(fromUrl+'/', process.cwd())
+              copyDir(fromUrl+'/', process.cwd(), function (error) {
+
+              })
               spinner.succeed();
               console.log(symbols.success, chalk.green(`The project ${ answers.sglFunTemplate} init success`));
             }
@@ -233,6 +219,14 @@ program
   })
 });
 
+
+program
+.command('clean')
+.description(`clean the cli cache`)
+.action(() => {
+  const cacheRoot = __dirname + '/.cache'
+  rm(cacheRoot)
+});
 
 // enhance common error messages
 const enhanceErrorMessages = require('../lib/util/enhanceErrorMessages');
@@ -256,5 +250,3 @@ program.parse(process.argv);
 if (!process.argv.slice(2).length) {
   program.outputHelp()
 }
-
-
