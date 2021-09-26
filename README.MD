@@ -117,7 +117,7 @@ npm i @a0znpm/fecli -g
 ~~~
 
 ~~~
-   > fe tree
+   > fe inject
    >
      .editorconfig
      eslint config(.eslintignore、.eslintrc.js)
