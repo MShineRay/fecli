@@ -1,4 +1,4 @@
-# fecli (v0.0.9-Pre-alpha)
+# fecli (v0.0.10-Pre-alpha)
 Front-End Command Line Interface
 
 ### Welcome
@@ -18,13 +18,13 @@ npm i @a0znpm/fecli -g
   - fe parsewxhtml # Streamline WeChat Official Account Articles 精简微信公众号文章
   - fe inject # Add single function template to project
   - fe check # check FE projcet
-~~~    
+~~~
 
 ### Example
 ~~~
     fe create # create project
-    
-    fe 
+
+    fe
       Commands:
         create         create a new project powered by @a0znpm/fecli
         info           print debugging information about your environment
@@ -36,14 +36,14 @@ npm i @a0znpm/fecli -g
    > fe create
    >
       ? Please input your project name testPro
-      ? Please select your project template 
-        template-pc-vue3(PC、vue3、elementui) 
-        template-wap-vue3-vant(wap、vue3、vant) 
-        template-node-serve-express 
-      ❯ template-vue2-webpack-umd 
-        template-jslib-rollup 
-        template-jslib-gulp 
-        template-web-gulp(gulp、jquery、require、mustache) 
+      ? Please select your project template
+        template-pc-vue3(PC、vue3、elementui)
+        template-wap-vue3-vant(wap、vue3、vant)
+        template-node-serve-express
+      ❯ template-vue2-webpack-umd
+        template-jslib-rollup
+        template-jslib-gulp
+        template-web-gulp(gulp、jquery、require、mustache)
       (Move up and down to reveal more choices)
 
 ~~~
@@ -119,13 +119,13 @@ npm i @a0znpm/fecli -g
 ~~~
    > fe tree
    >
-     .editorconfig 
-     eslint config(.eslintignore、.eslintrc.js) 
-     .gitignore 
-     .prettierrc 
-     readme-project.md 
-     readme-sdk.md 
-     vue-component.vue 
+     .editorconfig
+     eslint config(.eslintignore、.eslintrc.js)
+     .gitignore
+     .prettierrc
+     readme-project.md
+     readme-sdk.md
+     vue-component.vue
 
 ~~~
 
@@ -142,7 +142,7 @@ npm i @a0znpm/fecli -g
  - [npm docs](https://docs.npmjs.com/cli/v7/using-npm/developers)
  - [tree-node-cli](https://www.npmjs.com/package/tree-node-cli)
    ~~~
-    npm install -g tree-node-cli    
+    npm install -g tree-node-cli
     tree -I "node_modules"  --dirs-first
    ~~~
  - [软件版本周期](https://zh.wikipedia.org/wiki/%E8%BB%9F%E4%BB%B6%E7%89%88%E6%9C%AC%E9%80%B1%E6%9C%9F)
