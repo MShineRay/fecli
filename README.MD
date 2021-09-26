@@ -1,4 +1,4 @@
-# fecli (v0.0.7-Pre-alpha)
+# fecli (v0.0.8-Pre-alpha)
 Front-End Command Line Interface
 
 ### Welcome
@@ -16,14 +16,7 @@ npm i @a0znpm/fecli -g
   - fe create # create FE project by template
   - fe tree # Generate project directory tree description(directoryTreeDesc.md)
   - fe parsewxhtml # Streamline WeChat Official Account Articles 精简微信公众号文章
-  - fe lint
-  - fe md 
-    - readme
-  - fe git
-    - .gitignore
-    - .gitkeep
-  - fe file
-  - fe dir
+  - fe inject # Add single function template to project
   - fe check # check FE projcet
 ~~~    
 
@@ -36,6 +29,7 @@ npm i @a0znpm/fecli -g
         create         create a new project powered by @a0znpm/fecli
         info           print debugging information about your environment
         tree           generate directory tree under current directory(more about tree-node-cli)
+        inject         Add single function template to project
 ~~~
 
 ~~~
@@ -120,6 +114,19 @@ npm i @a0znpm/fecli -g
       ├── index.js
       ├── package-lock.json
       └── package.json
+~~~
+
+~~~
+   > fe tree
+   >
+     .editorconfig 
+     eslint config(.eslintignore、.eslintrc.js) 
+     .gitignore 
+     .prettierrc 
+     readme-project.md 
+     readme-sdk.md 
+     vue-component.vue 
+
 ~~~
 
 ### Knowledge Point

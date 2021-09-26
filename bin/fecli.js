@@ -36,10 +36,13 @@ const symbols = require('log-symbols');
 const config = require('../lib/cli.config.json');
 let choices = config.choices;
 
-function getGitUrl(choiceVal) {
-  for (let i = 0, len = choices.length; i < len; i++) {
-    if (choices[i].value === choiceVal) {
-      return choices[i].url;
+const sglConfig = require('../lib/sgl.config.json');
+let sglChoices = sglConfig.choices;
+
+function getGitUrl(choiceVal, configList=choices) {
+  for (let i = 0, len = configList.length; i < len; i++) {
+    if (configList[i].value === choiceVal) {
+      return configList[i].url;
     }
   }
   return '';
@@ -99,7 +102,7 @@ program
 
     } else {
       // 错误提示项目已存在，避免覆盖原有项目
-      console.log(chalk.red(`初始化项目失败！Error:项目目录${answers.projectName}已存在`));
+      console.log(chalk.red(`Failed init the project！Error:The project ${answers.projectName} already exists`));
     }
   })
 });
@@ -173,6 +176,48 @@ program
 });
 program.commands.forEach(c => c.on('--help', () => console.log()));
 
+
+
+program
+.command('inject')
+.description(`Add single function template to project`)
+.action(() => {
+  inquirer.prompt([
+    {
+      type: "list",
+      name: 'sglFunTemplate',
+      message: 'Please select your single function template',
+      choices: sglChoices
+    },
+  ]).then((answers) => {
+    if (!fs.existsSync(answers.sglFunTemplate)) {
+      const spinner = ora();
+      spinner.start('download project template...');
+      let gitUrl = getGitUrl(answers.sglFunTemplate, sglConfig.choices);
+      if (gitUrl) {
+        console.log('gitUrl:', gitUrl)
+        console.log('__dirname:', __dirname)
+        download(gitUrl, './', {clone: true}, (err) => {
+          if (err) {
+            console.log(err)
+            spinner.fail(symbols.error);
+          } else {
+            spinner.succeed();
+            console.log(symbols.success, chalk.green(`The project ${ answers.sglFunTemplate} init success`));
+          }
+        })
+      } else {
+        spinner.fail("git url is null");
+      }
+    } else {
+      // 错误提示项目已存在，避免覆盖原有项目
+      console.log(chalk.red(`Failed add！Error:The template ${answers.sglFunTemplate} already exists`));
+    }
+  })
+});
+
+
+
 // enhance common error messages
 const enhanceErrorMessages = require('../lib/util/enhanceErrorMessages');
 
@@ -195,3 +240,5 @@ program.parse(process.argv);
 if (!process.argv.slice(2).length) {
   program.outputHelp()
 }
+
+

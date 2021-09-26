@@ -1,0 +1,40 @@
+{
+  "desc":"single function template",
+  "choices": [
+    {
+      "value": ".editorconfig",
+      "url": "direct:https://github.com/MShineRay/template-sgl-editorconfig",
+      "name": ".editorconfig"
+    },
+    {
+      "value": ".eslintignore",
+      "url": "direct:https://github.com/MShineRay/template-sgl-eslint",
+      "name": "eslint config(.eslintignore、.eslintrc.js)"
+    },
+    {
+      "value": ".gitignore",
+      "url": "direct:https://github.com/MShineRay/template-sgl-gitignore",
+      "name": ".gitignore"
+    },
+    {
+      "value": ".prettierrc",
+      "url": "direct:https://github.com/MShineRay/template-sgl-prettierrc",
+      "name": ".prettierrc"
+    },
+    {
+      "value": "readme-project",
+      "url": "direct:https://github.com/MShineRay/template-sgl-readme-project",
+      "name": "readme-project.md"
+    },
+    {
+      "value": "readme-sdk",
+      "url": "direct:https://github.com/MShineRay/template-sgl-readme-sdk",
+      "name": "readme-sdk.md"
+    },
+    {
+      "value": "vue-component",
+      "url": "direct:https://github.com/MShineRay/template-sgl-vue-component",
+      "name": "vue-component.vue"
+    }
+  ]
+}
