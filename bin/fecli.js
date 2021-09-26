@@ -195,9 +195,7 @@ program
       spinner.start('download project template...');
       let gitUrl = getGitUrl(answers.sglFunTemplate, sglConfig.choices);
       if (gitUrl) {
-        console.log('gitUrl:', gitUrl)
-        console.log('__dirname:', __dirname)
-        download(gitUrl, './', {clone: true}, (err) => {
+        download(gitUrl, process.cwd(), {clone: true}, (err) => {
           if (err) {
             console.log(err)
             spinner.fail(symbols.error);
