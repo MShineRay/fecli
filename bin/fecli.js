@@ -219,7 +219,7 @@ program
   })
 });
 
-
+// fe clean
 program
 .command('clean')
 .description(`clean the cli cache`)

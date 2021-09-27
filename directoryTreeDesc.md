@@ -20,12 +20,8 @@ fecli
 │   │   ├── fileUtils.js
 │   │   ├── note.js
 │   │   └── utils.js
-│   ├── .editorconfig
-│   ├── .eslintignore
-│   ├── .eslintrc.js
-│   ├── .gitignore
-│   ├── .prettierrc
-│   └── cli.config.json
+│   ├── cli.config.json
+│   └── sgl.config.json
 ├── src
 │   ├── common
 │   │   └── .gitkeep

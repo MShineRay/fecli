@@ -1,5 +1,11 @@
 # log
 
+### v0.0.11
+* fe clean
+
+### v0.0.10
+* fe inject
+
 ### v0.0.3
 * add--命令--dir-tree（生成目录结构树）
     * 支持.js、.css、.vue、.html文件注释解析
