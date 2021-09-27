@@ -13,25 +13,22 @@ npm i @a0znpm/fecli -g
 ~~~
 ### Use
 ~~~
-  - fe create # create FE project by template
-  - fe tree # Generate project directory tree description(directoryTreeDesc.md)
-  - fe parsewxhtml # Streamline WeChat Official Account Articles 精简微信公众号文章
-  - fe inject # Add single function template to project
-  - fe check # check FE projcet
+> fe
+   Usage: fe <command> [options]
+   
+   Options:
+     -V, --version  output the version number
+     -h, --help     output usage information
+   
+   Commands:
+     create         create a new project powered by @a0znpm/fecli
+     info           print debugging information about your environment
+     tree           generate directory tree under current directory(more about tree-node-cli)
+     inject         Add single function template to project
+     clean          clean the cli cache
 ~~~
 
 ### Example
-~~~
-    fe create # create project
-
-    fe
-      Commands:
-        create         create a new project powered by @a0znpm/fecli
-        info           print debugging information about your environment
-        tree           generate directory tree under current directory(more about tree-node-cli)
-        inject         Add single function template to project
-~~~
-
 ~~~
    > fe create
    >
@@ -45,9 +42,7 @@ npm i @a0znpm/fecli -g
         template-jslib-gulp
         template-web-gulp(gulp、jquery、require、mustache)
       (Move up and down to reveal more choices)
-
 ~~~
-
 
 ~~~
    > fe tree
@@ -55,7 +50,6 @@ npm i @a0znpm/fecli -g
       fecli
       ├── bin
       │   ├── fecli.js
-      │   └── sf.js
       ├── doc
       │   ├── Q&A.md
       │   ├── log.md

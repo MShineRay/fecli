@@ -22,7 +22,12 @@
     "ora": "^4.0.3",
     "recursive-readdir": "^2.2.2",
     "semver": "^6.3.0",
-    "walk": "^2.3.14"
+    "walk": "^2.3.14",
+    "archive-type": "^4.0.0",
+    "bl": "^4.1.0",
+    "cheerio": "^1.0.0-rc.6",
+    "ncp": "^2.0.0",
+    "tree-node-cli": "^1.4.0"
   },
   "engines": {
     "node": ">=8.9"
@@ -38,10 +43,6 @@
     "cli"
   ],
   "devDependencies": {
-    "archive-type": "^4.0.0",
-    "bl": "^4.1.0",
-    "cheerio": "^1.0.0-rc.6",
-    "ncp": "^2.0.0",
-    "tree-node-cli": "^1.4.0"
+
   }
 }

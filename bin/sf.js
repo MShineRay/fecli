@@ -56,34 +56,6 @@ program
   require('../src/parseWXHtml').parseWXHtml();
 });
 
-
-program
-.command('info')
-.description('print debugging information about your environment')
-.action((cmd) => {
-  console.log(chalk.bold('\nEnvironment Info:'));
-  require('envinfo').run(
-    {
-      System: ['OS', 'CPU'],
-      Binaries: ['Node', 'Yarn', 'npm','webpack','vue-cli3'],
-      Browsers: ['Chrome', 'Firefox', 'Safari'],
-      npmPackages: ['styled-components', 'babel-plugin-styled-components'],
-      npmGlobalPackages: ['npm', 'typescript', 'jest','vue-cli3','vue','webpack'],
-      Utilities: ['Git', 'Subversion']
-   /*   System: ['OS', 'CPU'],
-      Binaries: ['Node', 'Yarn', 'npm'],
-      Browsers: ['Chrome', 'Edge', 'Firefox', 'Safari'],
-      npmPackages: '/!**!/{typescript,*vue*,@vue/!*!/}',
-      npmGlobalPackages: ['@vue/cli']*/
-    },
-    {
-      showNotFound: true,
-      duplicates: true,
-      fullTree: true
-    }
-  ).then(console.log)
-});
-
 // output help information on unknown commands
 program
 .arguments('<command>')
