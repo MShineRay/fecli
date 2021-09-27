@@ -8,13 +8,14 @@
         - webpack版本
     
 ### 完善模板
-- 如何将单一功能模版动态注入到项目中？
+- 如何将单一功能模版动态注入到项目中？(done)
     - readme.md
     - vue组件
     - jsUtils.js
     - eslint相关配置
     - package.json
     - .gitingore
+    
     
 - 实现模板远程维护
     - 模版配置文件可外部扩展(参考npm config)
@@ -37,7 +38,7 @@
             - 缓存时长：30d
         - 缓存清除
             - 命令清除缓存
-                - fe clean cache
+                - fe clean
         
 
 
