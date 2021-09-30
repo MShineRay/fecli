@@ -228,6 +228,16 @@ program
   rm(cacheRoot)
 });
 
+// fe server
+program
+.command('server')
+.description(`start node static http service by server(more about live-server)`)
+.action((utility, args, options) => {
+  // const action = options.dryRun ? 'Would run' : 'Running';
+  // console.log(`${action}: ${utility} ${args.join(' ')}`);
+  require('../lib/util/server')();
+});
+
 // enhance common error messages
 const enhanceErrorMessages = require('../lib/util/enhanceErrorMessages');
 
