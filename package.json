@@ -1,14 +1,12 @@
 {
   "name": "@a0znpm/fecli",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "Front-End Command Line Interface",
   "bin": {
-    "fe": "bin/fecli.js",
-    "sf": "bin/sf.js"
+    "fe": "bin/fecli.js"
   },
   "scripts": {
-    "fe": "node bin/fecli.js",
-    "sf": "node bin/sf.js"
+    "fe": "node bin/fecli.js"
   },
   "author": "MShineRay",
   "license": "MIT",
@@ -40,9 +38,15 @@
     "fe",
     "sf",
     "fecli",
+    "fe-cli",
     "cli"
   ],
   "devDependencies": {
 
+  },
+  "homepage": "https://github.com/MShineRay/fecli#README.MD",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MShineRay/fecli.git"
   }
 }
