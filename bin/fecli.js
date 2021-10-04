@@ -56,21 +56,27 @@ program
 
 // fe create
 program
-.command('create')
+.command('create [projectName]')
 .description(`create a new project powered by ${pkg.name}`)
-.action(() => {
-  inquirer.prompt([
-    {
-      name: 'projectName',
-      message: 'Please input your project name'
-    },
+.action((projectName) => {
+  let defaultPrompt = [
     {
       type: "list",
       name: 'cliTemplate',
       message: 'Please select your project template',
       choices: choices
-    },
-  ]).then((answers) => {
+    }
+  ]
+  if(!projectName){
+    defaultPrompt.unshift({
+      name: 'projectName',
+      message: 'Please input your project name'
+    })
+  }
+  inquirer.prompt(defaultPrompt).then((answers) => {
+    if(projectName){
+      answers.projectName = projectName
+    }
     if (!fs.existsSync(answers.projectName)) {
       const spinner = ora();
       spinner.start('download project template...');

@@ -41,9 +41,7 @@
     "fe-cli",
     "cli"
   ],
-  "devDependencies": {
-
-  },
+  "devDependencies": {},
   "homepage": "https://github.com/MShineRay/fecli#README.MD",
   "repository": {
     "type": "git",
