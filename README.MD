@@ -23,10 +23,10 @@ npm i @a0znpm/fecli -g
    Commands:
      create [projectName]  create a new project powered by @a0znpm/fecli
      info                  print debugging information about your environment
-     tree                  generate directory tree under current directory(more about tree-node-cli)
+     tree                  generate directory tree under current directory(more about [tree-node-cli](https://www.npmjs.com/package/tree-node-cli))
      inject                Add single function template to project
      clean                 clean the cli cache
-     server                start node static http service by server(more about live-server)
+     server                start node static http service by server(more about [live-server](https://www.npmjs.com/package/live-server))
 ~~~
 
 ### Example
@@ -134,6 +134,10 @@ npm i @a0znpm/fecli -g
     tree -I "node_modules"  --dirs-first
    ~~~
  - [软件版本周期](https://zh.wikipedia.org/wiki/%E8%BB%9F%E4%BB%B6%E7%89%88%E6%9C%AC%E9%80%B1%E6%9C%9F)
-
+ - [live-server](https://www.npmjs.com/package/live-server)
+   ~~~
+   npm install -g live-server
+   live-server
+   ~~~
 ### License
    [MIT](LICENSE)
