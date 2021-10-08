@@ -21,11 +21,12 @@ npm i @a0znpm/fecli -g
      -h, --help     output usage information
    
    Commands:
-     create         create a new project powered by @a0znpm/fecli
-     info           print debugging information about your environment
-     tree           generate directory tree under current directory(more about tree-node-cli)
-     inject         Add single function template to project
-     clean          clean the cli cache
+     create [projectName]  create a new project powered by @a0znpm/fecli
+     info                  print debugging information about your environment
+     tree                  generate directory tree under current directory(more about tree-node-cli)
+     inject                Add single function template to project
+     clean                 clean the cli cache
+     server                start node static http service by server(more about live-server)
 ~~~
 
 ### Example
