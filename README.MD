@@ -50,7 +50,7 @@ npm i @a0znpm/fecli -g
    >
       fecli
       ├── bin
-      │   ├── fecli.js
+      │   └── fecli.js
       ├── doc
       │   ├── Q&A.md
       │   ├── log.md
@@ -67,21 +67,10 @@ npm i @a0znpm/fecli -g
       │   │   ├── enhanceErrorMessages.js
       │   │   ├── fileUtils.js
       │   │   ├── note.js
+      │   │   ├── server.js
       │   │   └── utils.js
-      │   ├── .editorconfig
-      │   ├── .eslintignore
-      │   ├── .eslintrc.js
-      │   ├── .gitignore
-      │   ├── .prettierrc
-      │   └── cli.config.json
-      ├── src
-      │   ├── common
-      │   │   └── .gitkeep
-      │   ├── 1.css
-      │   ├── 1.html
-      │   ├── 1.js
-      │   ├── 1.vue
-      │   └── parseWXHtml.js
+      │   ├── cli.config.json
+      │   └── sgl.config.json
       ├── test
       │   ├── directory-tree
       │   │   ├── directory-tree.js
@@ -90,6 +79,10 @@ npm i @a0znpm/fecli -g
       │   │   └── envinfo.js
       │   ├── recursive-readdir
       │   │   └── recursive-readdir.js
+      │   ├── server
+      │   │   ├── index.html
+      │   │   ├── index.js
+      │   │   └── test.js
       │   ├── util
       │   │   ├── fileUtils.js
       │   │   ├── note.js
@@ -106,7 +99,7 @@ npm i @a0znpm/fecli -g
       ├── LICENSE
       ├── README-Inner.MD
       ├── README.MD
-      ├── index.js
+      ├── directoryTreeDesc.md
       ├── package-lock.json
       └── package.json
 ~~~
