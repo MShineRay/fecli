@@ -29,7 +29,8 @@ if (semver.satisfies(process.version, '9.x')) {
 }
 const fs = require('fs');//读写文件模块，这里主要用于读入用户配置文件，输出模板到文件
 const program = require('commander');//NodeJs命令行工具，提供了用户命令行输入和参数解析，用户解析用户输入
-const download = require('download-git-repo');
+// const download = require('download-git-repo');
+const download = require('../lib/util/download-git-repo-x');
 const inquirer = require('inquirer');//NodeJs交互式命令行工具，询问操作者问题，获取用户输入，校验回答的合法性
 const ora = require('ora');
 const symbols = require('log-symbols');
