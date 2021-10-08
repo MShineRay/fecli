@@ -126,15 +126,10 @@ program
     {
       System: ['OS', 'CPU'],
       Binaries: ['Node', 'Yarn', 'npm','webpack','vue-cli3'],
-      Browsers: ['Chrome', 'Firefox', 'Safari'],
+      Browsers: ['Chrome', 'Edge','Firefox', 'Safari'],
       npmPackages: ['styled-components', 'babel-plugin-styled-components'],
-      npmGlobalPackages: ['npm', 'typescript', 'jest','vue-cli3','vue','webpack'],
+      npmGlobalPackages: ['npm', 'typescript', 'jest','vue-cli3','vue','webpack', '@vue/cli'],
       Utilities: ['Git', 'Subversion']
-   /*   System: ['OS', 'CPU'],
-      Binaries: ['Node', 'Yarn', 'npm'],
-      Browsers: ['Chrome', 'Edge', 'Firefox', 'Safari'],
-      npmPackages: '/!**!/{typescript,*vue*,@vue/!*!/}',
-      npmGlobalPackages: ['@vue/cli']*/
     },
     {
       showNotFound: true,
