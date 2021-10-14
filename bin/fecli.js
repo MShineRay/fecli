@@ -55,6 +55,22 @@ program
 .version(pkg.version)
 .usage('<command> [options]');
 
+function checkProjectName(projectName, cwd) {
+  const inCurrent = projectName === '.'
+  const name = inCurrent ? path.relative('../', cwd) : projectName
+  const result = validateProjectName(name)
+  if (!result.validForNewPackages) {
+    console.error(chalk.red(`Invalid project name: "${name}"`))
+    result.errors && result.errors.forEach(err => {
+      console.error(chalk.red.dim('Error: ' + err))
+    })
+    result.warnings && result.warnings.forEach(warn => {
+      console.error(chalk.red.dim('Warning: ' + warn))
+    })
+    process.exit(1)
+  }
+}
+
 // fe create
 program
 .command('create [projectName]')
@@ -62,19 +78,20 @@ program
 .description(`create a new project powered by ${pkg.name}`)
 .action((projectName, options)=>{
   console.log(options.clone)
-  console.log(options.gitUrl)
-  let defaultPrompt = [
-    {
-      type: "list",
-      name: 'cliTemplate',
-      message: 'Please select your project template',
-      choices: choices
-    }
-  ]
+  let defaultPrompt = []
   if(!projectName){
     defaultPrompt.unshift({
       name: 'projectName',
       message: 'Please input your project name'
+    })
+  }
+
+  if(!options.clone){
+    defaultPrompt.push({
+      type: "list",
+      name: 'cliTemplate',
+      message: 'Please select your project template',
+      choices: choices
     })
   }
   inquirer.prompt(defaultPrompt).then((answers) => {
@@ -83,24 +100,17 @@ program
     }
 
     const cwd = options.cwd || process.cwd()
-    const inCurrent = projectName === '.'
-    const name = inCurrent ? path.relative('../', cwd) : projectName
-    const result = validateProjectName(name)
-    if (!result.validForNewPackages) {
-      console.error(chalk.red(`Invalid project name: "${name}"`))
-      result.errors && result.errors.forEach(err => {
-        console.error(chalk.red.dim('Error: ' + err))
-      })
-      result.warnings && result.warnings.forEach(warn => {
-        console.error(chalk.red.dim('Warning: ' + warn))
-      })
-      process.exit(1)
-    }
+    checkProjectName(answers.projectName, cwd);
 
     if (!fs.existsSync(answers.projectName)) {
       const spinner = ora();
-      spinner.start('download project template...');
-      let gitUrl = getGitUrl(answers.cliTemplate);
+      let tip = 'download project template...'
+      if(options.clone){
+        tip = 'download project template with git clone '+options.clone
+      }
+      spinner.start(tip);
+      let gitUrl = options.clone || getGitUrl(answers.cliTemplate);
+
       if (gitUrl) {
         download(gitUrl, answers.projectName, {clone: true,checkout:false, depth:1}, (err) => {
           if (err) {
@@ -188,7 +198,29 @@ program.commands.forEach(c => c.on('--help', () => console.log()));
 program
 .command('inject')
 .description(`Add single function template to project`)
-.action(() => {
+.option('-c, --clone <gitUrl>', 'inject template to project with git clone(eg. fe inject -c https://github.com/MShineRay/template-sgl-editorconfig)')
+.action((options) => {
+  if(options.clone){
+    const fromUrl = path.resolve(__dirname+'/'+sglConfig.cache+'/tempClone')
+    rm(fromUrl + '/')
+    download(options.clone, fromUrl, {clone: true, checkout:false, depth:1}, (err) => {
+      rm(fromUrl+'/.git')
+      const spinner = ora();
+      if (err) {
+        console.log(err)
+        spinner.fail(symbols.error);
+        copyDir(fromUrl+'/', process.cwd())
+      } else {
+        copyDir(fromUrl+'/', process.cwd(), function (error) {
+
+        })
+        spinner.succeed();
+        console.log(symbols.success, chalk.green(`The template ${ options.clone  } init success`));
+      }
+    })
+
+    return true
+  }
   inquirer.prompt([
     {
       type: "list",
