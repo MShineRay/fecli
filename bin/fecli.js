@@ -40,6 +40,7 @@ let choices = config.choices;
 const sglConfig = require('../lib/sgl.config.json');
 let sglChoices = sglConfig.choices;
 const rm = require('rimraf').sync
+const validateProjectName = require('validate-npm-package-name')
 
 function getGitUrl(choiceVal, configList=choices) {
   for (let i = 0, len = configList.length; i < len; i++) {
@@ -57,8 +58,11 @@ program
 // fe create
 program
 .command('create [projectName]')
+.option('-c, --clone <gitUrl>', 'create a new project with git clone(eg. fe create proDemo -c https://github.com/MShineRay/template-pc-vue2-elementui)')
 .description(`create a new project powered by ${pkg.name}`)
-.action((projectName) => {
+.action((projectName, options)=>{
+  console.log(options.clone)
+  console.log(options.gitUrl)
   let defaultPrompt = [
     {
       type: "list",
@@ -77,6 +81,22 @@ program
     if(projectName){
       answers.projectName = projectName
     }
+
+    const cwd = options.cwd || process.cwd()
+    const inCurrent = projectName === '.'
+    const name = inCurrent ? path.relative('../', cwd) : projectName
+    const result = validateProjectName(name)
+    if (!result.validForNewPackages) {
+      console.error(chalk.red(`Invalid project name: "${name}"`))
+      result.errors && result.errors.forEach(err => {
+        console.error(chalk.red.dim('Error: ' + err))
+      })
+      result.warnings && result.warnings.forEach(warn => {
+        console.error(chalk.red.dim('Warning: ' + warn))
+      })
+      process.exit(1)
+    }
+
     if (!fs.existsSync(answers.projectName)) {
       const spinner = ora();
       spinner.start('download project template...');

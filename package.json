@@ -1,6 +1,6 @@
 {
   "name": "@a0znpm/fecli",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "description": "Front-End Command Line Interface",
   "bin": {
     "fe": "bin/fecli.js"
@@ -16,10 +16,8 @@
     "cheerio": "^1.0.0-rc.6",
     "commander": "^4.0.1",
     "directory-tree": "^2.2.4",
-    "download": "^8.0.0",
     "download-git-repo": "^3.0.2",
     "envinfo": "^7.5.0",
-    "git-clone": "^0.2.0",
     "handlebars": "^4.5.3",
     "inquirer": "^7.0.0",
     "ncp": "^2.0.0",
@@ -27,7 +25,8 @@
     "recursive-readdir": "^2.2.2",
     "semver": "^6.3.0",
     "tree-node-cli": "^1.4.0",
-    "walk": "^2.3.14"
+    "walk": "^2.3.14",
+    "validate-npm-package-name": "^3.0.0"
   },
   "engines": {
     "node": ">=8.9"
@@ -43,7 +42,6 @@
     "fe-cli",
     "cli"
   ],
-  "devDependencies": {},
   "homepage": "https://github.com/MShineRay/fecli#README.MD",
   "repository": {
     "type": "git",
