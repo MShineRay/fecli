@@ -109,7 +109,10 @@ program
         tip = 'download project template with git clone '+options.clone
       }
       spinner.start(tip);
-      let gitUrl = options.clone || getGitUrl(answers.cliTemplate);
+      let gitUrl = getGitUrl(answers.cliTemplate);
+      if(options.clone){
+        gitUrl = 'direct:' + options.clone
+      }
 
       if (gitUrl) {
         download(gitUrl, answers.projectName, {clone: true,checkout:false, depth:1}, (err) => {
@@ -152,13 +155,15 @@ program
 .description('print debugging information about your environment')
 .action((cmd) => {
   console.log(chalk.bold('\nEnvironment Info:'));
+  console.log('\n@a0znpm/cli install path: '+ __dirname)
+
   require('envinfo').run(
     {
       System: ['OS', 'CPU'],
       Binaries: ['Node', 'Yarn', 'npm','webpack','vue-cli3'],
       Browsers: ['Chrome', 'Edge','Firefox', 'Safari'],
       npmPackages: ['styled-components', 'babel-plugin-styled-components'],
-      npmGlobalPackages: ['npm', 'typescript', 'jest','vue-cli3','vue','webpack', '@vue/cli'],
+      npmGlobalPackages: ['npm', 'typescript', 'jest','vue-cli3','vue','webpack', '@vue/cli', '@a0znpm/fecli'],
       Utilities: ['Git', 'Subversion']
     },
     {
@@ -202,8 +207,7 @@ program
 .action((options) => {
   if(options.clone){
     const fromUrl = path.resolve(__dirname+'/'+sglConfig.cache+'/tempClone')
-    rm(fromUrl + '/')
-    download(options.clone, fromUrl, {clone: true, checkout:false, depth:1}, (err) => {
+    download('direct:' + options.clone, fromUrl, {clone: true, checkout:false, depth:1}, (err) => {
       rm(fromUrl+'/.git')
       const spinner = ora();
       if (err) {

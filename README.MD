@@ -15,18 +15,18 @@ npm i @a0znpm/fecli -g
 ~~~
 > fe
    Usage: fe <command> [options]
-   
+
    Options:
      -V, --version  output the version number
      -h, --help     output usage information
-   
+
    Commands:
-     create [projectName]  create a new project powered by @a0znpm/fecli
-     info                  print debugging information about your environment
-     tree                  generate directory tree under current directory(more about [tree-node-cli](https://www.npmjs.com/package/tree-node-cli))
-     inject                Add single function template to project
-     clean                 clean the cli cache
-     server                start node static http service by server(more about [live-server](https://www.npmjs.com/package/live-server))
+     create [options] [projectName]  create a new project powered by @a0znpm/fecli
+     info                            print debugging information about your environment
+     tree                            generate directory tree under current directory(more about tree-node-cli)
+     inject [options]                Add single function template to project
+     clean                           clean the cli cache
+     server                          start node static http service by server(more about live-server)
 ~~~
 
 ### Example
@@ -43,6 +43,8 @@ npm i @a0znpm/fecli -g
         template-jslib-gulp
         template-web-gulp(gulp、jquery、require、mustache)
       (Move up and down to reveal more choices)
+      
+   > fe create -c https://github.com/UserName/ProjectTemplateXXX
 ~~~
 
 ~~~
@@ -114,6 +116,9 @@ npm i @a0znpm/fecli -g
      readme-project.md
      readme-sdk.md
      vue-component.vue
+     
+     
+   > fe inject -c https://github.com/UserName/ProjectTemplateXXX
 
 ~~~
 
