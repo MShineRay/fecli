@@ -46,5 +46,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MShineRay/fecli.git"
+  },
+  "devDependencies": {
+    "request": "^2.88.2"
   }
 }
