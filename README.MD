@@ -1,4 +1,4 @@
-# fecli (Pre-alpha)
+# fecli (Beta)
 Front-End Command Line Interface
 
 ### Welcome

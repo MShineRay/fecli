@@ -295,6 +295,14 @@ program
   require('../lib/util/server')();
 });
 
+program
+.command('check-version')
+.description("check the @a0znpm/fecli version.")
+.action(() => {
+  require('../lib/util/checkVersion')();
+})
+
+
 // enhance common error messages
 const enhanceErrorMessages = require('../lib/util/enhanceErrorMessages');
 
