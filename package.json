@@ -1,6 +1,6 @@
 {
   "name": "@a0znpm/fecli",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Front-End Command Line Interface",
   "bin": {
     "fe": "bin/fecli.js"
@@ -49,6 +49,6 @@
   },
   "devDependencies": {
     "request": "^2.88.2",
-    "update-notifier": "^5.1.0"
+    "update-notifier": "^4.1.3"
   }
 }
