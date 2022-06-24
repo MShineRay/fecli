@@ -7,6 +7,10 @@ Welcome to improve related functions
 - [project template](https://github.com/MShineRay?tab=projects)
 - [cli](https://github.com/MShineRay/fecli)
 
+### Functions
+- [X] project develop template
+- [X] single function template(.gitignore、eslint、.editorconfig...)
+
 ### Install
 ~~~
 npm i @a0znpm/fecli -g
@@ -27,6 +31,7 @@ npm i @a0znpm/fecli -g
      inject [options]                Add single function template to project
      clean                           clean the cli cache
      server                          start node static http service by server(more about live-server)
+     check-version                   check the @a0znpm/fecli version.
 ~~~
 
 ### Example
@@ -145,5 +150,10 @@ npm i @a0znpm/fecli -g
    live-server
    ~~~
  - [npm/cli](https://github.com/npm/cli)
+
+### TODO
+- [ ] 本地Mock服务
+- [ ] 统一本地开发环境
+
 ### License
    [MIT](LICENSE)
