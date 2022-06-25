@@ -40,6 +40,7 @@ let choices = config.choices;
 const sglConfig = require('../lib/sgl.config.json');
 let sglChoices = sglConfig.choices;
 const rm = require('rimraf').sync
+const validateProjectName = require('validate-npm-package-name')
 
 function getGitUrl(choiceVal, configList=choices) {
   for (let i = 0, len = configList.length; i < len; i++) {
@@ -54,35 +55,67 @@ program
 .version(pkg.version)
 .usage('<command> [options]');
 
+function checkProjectName(projectName, cwd) {
+  const inCurrent = projectName === '.'
+  const name = inCurrent ? path.relative('../', cwd) : projectName
+  const result = validateProjectName(name)
+  if (!result.validForNewPackages) {
+    console.error(chalk.red(`Invalid project name: "${name}"`))
+    result.errors && result.errors.forEach(err => {
+      console.error(chalk.red.dim('Error: ' + err))
+    })
+    result.warnings && result.warnings.forEach(warn => {
+      console.error(chalk.red.dim('Warning: ' + warn))
+    })
+    process.exit(1)
+  }
+}
+
 // fe create
 program
 .command('create [projectName]')
+.option('-c, --clone <gitUrl>', 'create a new project with git clone(eg. fe create proDemo -c https://github.com/MShineRay/template-pc-vue2-elementui)')
 .description(`create a new project powered by ${pkg.name}`)
-.action((projectName) => {
-  let defaultPrompt = [
-    {
-      type: "list",
-      name: 'cliTemplate',
-      message: 'Please select your project template',
-      choices: choices
-    }
-  ]
+.action((projectName, options)=>{
+  console.log(options.clone)
+  let defaultPrompt = []
   if(!projectName){
     defaultPrompt.unshift({
       name: 'projectName',
       message: 'Please input your project name'
     })
   }
+
+  if(!options.clone){
+    defaultPrompt.push({
+      type: "list",
+      name: 'cliTemplate',
+      message: 'Please select your project template',
+      choices: choices
+    })
+  }
   inquirer.prompt(defaultPrompt).then((answers) => {
     if(projectName){
       answers.projectName = projectName
     }
+
+    const cwd = options.cwd || process.cwd()
+    checkProjectName(answers.projectName, cwd);
+
     if (!fs.existsSync(answers.projectName)) {
       const spinner = ora();
-      spinner.start('download project template...');
+      let tip = 'download project template...'
+      if(options.clone){
+        tip = 'download project template with git clone '+options.clone
+      }
+      spinner.start(tip);
       let gitUrl = getGitUrl(answers.cliTemplate);
+      if(options.clone){
+        gitUrl = 'direct:' + options.clone
+      }
+
       if (gitUrl) {
-        download(gitUrl, answers.projectName, {clone: true}, (err) => {
+        download(gitUrl, answers.projectName, {clone: true,checkout:false, depth:1}, (err) => {
           if (err) {
             console.log(err)
             spinner.fail(symbols.error);
@@ -122,19 +155,16 @@ program
 .description('print debugging information about your environment')
 .action((cmd) => {
   console.log(chalk.bold('\nEnvironment Info:'));
+  console.log('\n@a0znpm/cli install path: '+ __dirname)
+
   require('envinfo').run(
     {
       System: ['OS', 'CPU'],
       Binaries: ['Node', 'Yarn', 'npm','webpack','vue-cli3'],
-      Browsers: ['Chrome', 'Firefox', 'Safari'],
+      Browsers: ['Chrome', 'Edge','Firefox', 'Safari'],
       npmPackages: ['styled-components', 'babel-plugin-styled-components'],
-      npmGlobalPackages: ['npm', 'typescript', 'jest','vue-cli3','vue','webpack'],
+      npmGlobalPackages: ['npm', 'typescript', 'jest','vue-cli3','vue','webpack', '@vue/cli', '@a0znpm/fecli'],
       Utilities: ['Git', 'Subversion']
-   /*   System: ['OS', 'CPU'],
-      Binaries: ['Node', 'Yarn', 'npm'],
-      Browsers: ['Chrome', 'Edge', 'Firefox', 'Safari'],
-      npmPackages: '/!**!/{typescript,*vue*,@vue/!*!/}',
-      npmGlobalPackages: ['@vue/cli']*/
     },
     {
       showNotFound: true,
@@ -173,7 +203,28 @@ program.commands.forEach(c => c.on('--help', () => console.log()));
 program
 .command('inject')
 .description(`Add single function template to project`)
-.action(() => {
+.option('-c, --clone <gitUrl>', 'inject template to project with git clone(eg. fe inject -c https://github.com/MShineRay/template-sgl-editorconfig)')
+.action((options) => {
+  if(options.clone){
+    const fromUrl = path.resolve(__dirname+'/'+sglConfig.cache+'/tempClone')
+    download('direct:' + options.clone, fromUrl, {clone: true, checkout:false, depth:1}, (err) => {
+      rm(fromUrl+'/.git')
+      const spinner = ora();
+      if (err) {
+        console.log(err)
+        spinner.fail(symbols.error);
+        copyDir(fromUrl+'/', process.cwd())
+      } else {
+        copyDir(fromUrl+'/', process.cwd(), function (error) {
+
+        })
+        spinner.succeed();
+        console.log(symbols.success, chalk.green(`The template ${ options.clone  } init success`));
+      }
+    })
+
+    return true
+  }
   inquirer.prompt([
     {
       type: "list",
@@ -199,7 +250,7 @@ program
           rm(sglConfig.cache + '/'+answers.sglFunTemplate+'/.git')
           const distDir = path.resolve(sglConfig.cache + '/'+answers.sglFunTemplate)
           console.log('distDir:' + distDir)
-          download(gitUrl, fromUrl, {clone: true}, (err) => {
+          download(gitUrl, fromUrl, {clone: true, checkout:false, depth:1}, (err) => {
             if (err) {
               console.log(err)
               spinner.fail(symbols.error);
@@ -243,6 +294,14 @@ program
   // console.log(`${action}: ${utility} ${args.join(' ')}`);
   require('../lib/util/server')();
 });
+
+program
+.command('check-version')
+.description("check the @a0znpm/fecli version.")
+.action(() => {
+  require('../lib/util/checkVersion')();
+})
+
 
 // enhance common error messages
 const enhanceErrorMessages = require('../lib/util/enhanceErrorMessages');

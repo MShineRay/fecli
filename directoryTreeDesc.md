@@ -1,8 +1,7 @@
 ~~~
 fecli
 ├── bin
-│   ├── fecli.js
-│   └── sf.js
+│   └── fecli.js
 ├── doc
 │   ├── Q&A.md
 │   ├── log.md
@@ -19,17 +18,10 @@ fecli
 │   │   ├── enhanceErrorMessages.js
 │   │   ├── fileUtils.js
 │   │   ├── note.js
+│   │   ├── server.js
 │   │   └── utils.js
 │   ├── cli.config.json
 │   └── sgl.config.json
-├── src
-│   ├── common
-│   │   └── .gitkeep
-│   ├── 1.css
-│   ├── 1.html
-│   ├── 1.js
-│   ├── 1.vue
-│   └── parseWXHtml.js
 ├── test
 │   ├── directory-tree
 │   │   ├── directory-tree.js
@@ -38,6 +30,10 @@ fecli
 │   │   └── envinfo.js
 │   ├── recursive-readdir
 │   │   └── recursive-readdir.js
+│   ├── server
+│   │   ├── index.html
+│   │   ├── index.js
+│   │   └── test.js
 │   ├── util
 │   │   ├── fileUtils.js
 │   │   ├── note.js
@@ -55,7 +51,6 @@ fecli
 ├── README-Inner.MD
 ├── README.MD
 ├── directoryTreeDesc.md
-├── index.js
 ├── package-lock.json
 └── package.json
 ~~~

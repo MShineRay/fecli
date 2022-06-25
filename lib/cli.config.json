@@ -2,6 +2,16 @@
   "name": "project template",
   "choices": [
     {
+      "value": "template-wap-vue3-vant",
+      "url": "direct:https://github.com/MShineRay/template-wap-vue3-vant",
+      "name": "template-wap-vue3-vant(wap、vue3、vant、vite)"
+    },
+    {
+      "value": "template-pc-vue3-manage-system",
+      "url": "direct:https://github.com/MShineRay/template-pc-vue3-manage-system",
+      "name": "template-pc-vue3-manage-system(pc、vue3、element-plus、vite)"
+    },
+    {
       "value": "template-pc-vue2-elementui",
       "url": "direct:https://github.com/MShineRay/template-pc-vue2-elementui",
       "name": "template-pc-vue2-elementui(pc、vue2、element-ui)"

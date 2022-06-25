@@ -1,4 +1,4 @@
-# fecli (Pre-alpha)
+# fecli (Beta)
 Front-End Command Line Interface
 
 ### Welcome
@@ -6,6 +6,10 @@ Welcome to improve related functions
 
 - [project template](https://github.com/MShineRay?tab=projects)
 - [cli](https://github.com/MShineRay/fecli)
+
+### Functions
+- [X] project develop template
+- [X] single function template(.gitignore、eslint、.editorconfig...)
 
 ### Install
 ~~~
@@ -15,18 +19,19 @@ npm i @a0znpm/fecli -g
 ~~~
 > fe
    Usage: fe <command> [options]
-   
+
    Options:
      -V, --version  output the version number
      -h, --help     output usage information
-   
+
    Commands:
-     create [projectName]  create a new project powered by @a0znpm/fecli
-     info                  print debugging information about your environment
-     tree                  generate directory tree under current directory(more about tree-node-cli)
-     inject                Add single function template to project
-     clean                 clean the cli cache
-     server                start node static http service by server(more about live-server)
+     create [options] [projectName]  create a new project powered by @a0znpm/fecli
+     info                            print debugging information about your environment
+     tree                            generate directory tree under current directory(more about tree-node-cli)
+     inject [options]                Add single function template to project
+     clean                           clean the cli cache
+     server                          start node static http service by server(more about live-server)
+     check-version                   check the @a0znpm/fecli version.
 ~~~
 
 ### Example
@@ -43,6 +48,8 @@ npm i @a0znpm/fecli -g
         template-jslib-gulp
         template-web-gulp(gulp、jquery、require、mustache)
       (Move up and down to reveal more choices)
+      
+   > fe create -c https://github.com/UserName/ProjectTemplateXXX
 ~~~
 
 ~~~
@@ -50,7 +57,7 @@ npm i @a0znpm/fecli -g
    >
       fecli
       ├── bin
-      │   ├── fecli.js
+      │   └── fecli.js
       ├── doc
       │   ├── Q&A.md
       │   ├── log.md
@@ -67,21 +74,10 @@ npm i @a0znpm/fecli -g
       │   │   ├── enhanceErrorMessages.js
       │   │   ├── fileUtils.js
       │   │   ├── note.js
+      │   │   ├── server.js
       │   │   └── utils.js
-      │   ├── .editorconfig
-      │   ├── .eslintignore
-      │   ├── .eslintrc.js
-      │   ├── .gitignore
-      │   ├── .prettierrc
-      │   └── cli.config.json
-      ├── src
-      │   ├── common
-      │   │   └── .gitkeep
-      │   ├── 1.css
-      │   ├── 1.html
-      │   ├── 1.js
-      │   ├── 1.vue
-      │   └── parseWXHtml.js
+      │   ├── cli.config.json
+      │   └── sgl.config.json
       ├── test
       │   ├── directory-tree
       │   │   ├── directory-tree.js
@@ -90,6 +86,10 @@ npm i @a0znpm/fecli -g
       │   │   └── envinfo.js
       │   ├── recursive-readdir
       │   │   └── recursive-readdir.js
+      │   ├── server
+      │   │   ├── index.html
+      │   │   ├── index.js
+      │   │   └── test.js
       │   ├── util
       │   │   ├── fileUtils.js
       │   │   ├── note.js
@@ -106,7 +106,7 @@ npm i @a0znpm/fecli -g
       ├── LICENSE
       ├── README-Inner.MD
       ├── README.MD
-      ├── index.js
+      ├── directoryTreeDesc.md
       ├── package-lock.json
       └── package.json
 ~~~
@@ -121,6 +121,9 @@ npm i @a0znpm/fecli -g
      readme-project.md
      readme-sdk.md
      vue-component.vue
+     
+     
+   > fe inject -c https://github.com/UserName/ProjectTemplateXXX
 
 ~~~
 
@@ -141,6 +144,16 @@ npm i @a0znpm/fecli -g
     tree -I "node_modules"  --dirs-first
    ~~~
  - [软件版本周期](https://zh.wikipedia.org/wiki/%E8%BB%9F%E4%BB%B6%E7%89%88%E6%9C%AC%E9%80%B1%E6%9C%9F)
+ - [live-server](https://www.npmjs.com/package/live-server)
+   ~~~
+   npm install -g live-server
+   live-server
+   ~~~
+ - [npm/cli](https://github.com/npm/cli)
+
+### TODO
+- [ ] 本地Mock服务
+- [ ] 统一本地开发环境
 
 ### License
    [MIT](LICENSE)
