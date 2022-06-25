@@ -1,6 +1,6 @@
 {
   "name": "@a0znpm/fecli",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Front-End Command Line Interface",
   "bin": {
     "fe": "bin/fecli.js"
@@ -46,8 +46,5 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MShineRay/fecli.git"
-  },
-  "devDependencies": {
-
   }
 }
