@@ -1,5 +1,6 @@
 {
   "name": "project template",
+  "version": "1.0.0",
   "choices": [
     {
       "value": "template-wap-vue3-vant",
@@ -67,5 +68,6 @@
       "name": "template-web-gulp(gulp、jquery、require、mustache)"
     }
   ],
-  "cache":".cache/projectTemplate"
+  "cache":".cache/projectTemplate",
+  "github": "direct:https://github.com/MShineRay/template-project-config"
 }

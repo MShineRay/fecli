@@ -1,0 +1,18 @@
+{
+  "desc":"config choices",
+  "version": "v1.0.0",
+  "choices": [
+    {
+      "value": "project-template-config",
+      "url": "direct:https://github.com/MShineRay/template-sgl-editorconfig",
+      "name": "project template config(E.g. template-wap-vue3-vant)"
+    },
+    {
+      "value": "single-function-template-config",
+      "url": "direct:https://github.com/MShineRay/template-sgl-eslint",
+      "name": "single function template(E.g. .eslintignore)"
+    }
+  ],
+  "cache":".cache/feConfig",
+  "github": "direct:https://github.com/MShineRay/template-fecli-config"
+}

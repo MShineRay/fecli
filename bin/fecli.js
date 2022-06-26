@@ -39,6 +39,9 @@ const config = require('../lib/cli.config.json');
 let choices = config.choices;
 const sglConfig = require('../lib/sgl.config.json');
 let sglChoices = sglConfig.choices;
+const fecliConfig = require('../lib/config.json');
+let fecliConfigChoices = fecliConfig.choices;
+
 const rm = require('rimraf').sync
 const validateProjectName = require('validate-npm-package-name')
 
@@ -301,6 +304,45 @@ program
 .action(() => {
   require('../lib/util/checkVersion')();
 })
+
+
+// fe config
+program
+  .command('config')
+  .description(`update config file of fecli`)
+  .action((options) => {
+    const cacheDir = fecliConfig.cache
+    console.log(cacheDir)
+    const fromUrl = path.resolve(__dirname+'/'+cacheDir)
+    console.log('fromUrl:'+fromUrl)
+    const spinner = ora();
+    rm(fromUrl)
+    spinner.start('fetch the fecli config from github...\n');
+    download(fecliConfig.github, fromUrl, {clone: true, checkout:false, depth:1}, (err) => {
+      rm(fromUrl+'/.git')
+      if (err) {
+        console.log(err)
+        spinner.fail(symbols.error);
+      } else {
+        spinner.succeed();
+        console.log(symbols.success, chalk.green(`fetch the fecli config success`));
+        // copyDir(fromUrl+'/config.json', './', function (error) {
+        //   spinner.succeed();
+        //
+        // })
+
+        // TODO 引入 最新的config.json 对比已有的 version
+        // 如果版本高，则复制
+        const fecliConfigVersion = fecliConfig.version
+
+        // 显示更新的选项
+
+      }
+    })
+
+
+
+  });
 
 
 // enhance common error messages

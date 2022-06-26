@@ -1,5 +1,6 @@
 {
   "desc":"single function template",
+  "version": "v1.0.0",
   "choices": [
     {
       "value": "editorconfig",
@@ -37,5 +38,6 @@
       "name": "vue-component.vue"
     }
   ],
-  "cache":".cache/sglTemplate"
+  "cache":".cache/sglTemplate",
+  "github": "direct:https://github.com/MShineRay/template-sgl-config"
 }
