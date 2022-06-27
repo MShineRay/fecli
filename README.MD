@@ -1,4 +1,4 @@
-# fecli (Beta)
+# fecli
 Front-End Command Line Interface
 
 ### Welcome
@@ -32,6 +32,7 @@ npm i @a0znpm/fecli -g
      clean                           clean the cli cache
      server                          start node static http service by server(more about live-server)
      check-version                   check the @a0znpm/fecli version.
+     config                          update config file of fecli
 ~~~
 
 ### Example
