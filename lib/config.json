@@ -1,16 +1,20 @@
 {
   "desc":"config choices",
-  "version": "v1.0.0",
+  "version": "1.0.5",
   "choices": [
     {
       "value": "project-template-config",
-      "url": "direct:https://github.com/MShineRay/template-sgl-editorconfig",
-      "name": "project template config(E.g. template-wap-vue3-vant)"
+      "url": "direct:https://github.com/MShineRay/template-project-config",
+      "name": "project template config(E.g. template-wap-vue3-vant)",
+      "src": "cli.config.json",
+      "dist": "lib/cli.config.json"
     },
     {
       "value": "single-function-template-config",
-      "url": "direct:https://github.com/MShineRay/template-sgl-eslint",
-      "name": "single function template(E.g. .eslintignore)"
+      "url": "direct:https://github.com/MShineRay/template-sgl-config",
+      "name": "single function template(E.g. .eslintignore)",
+      "src": "sgl.config.json",
+      "dist": "lib/sgl.config.json"
     }
   ],
   "cache":".cache/feConfig",

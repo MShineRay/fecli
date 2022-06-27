@@ -154,6 +154,7 @@ npm i @a0znpm/fecli -g
 ### TODO
 - [ ] 本地Mock服务
 - [ ] 统一本地开发环境
+- [ ] window测试+兼容
 
 ### License
    [MIT](LICENSE)

@@ -45,13 +45,19 @@ let fecliConfigChoices = fecliConfig.choices;
 const rm = require('rimraf').sync
 const validateProjectName = require('validate-npm-package-name')
 
-function getGitUrl(choiceVal, configList=choices) {
-  for (let i = 0, len = configList.length; i < len; i++) {
-    if (configList[i].value === choiceVal) {
-      return configList[i].url;
+function getChoiceItem(choiceVal, configList=choices){
+  if(choiceVal){
+    for (let i = 0, len = configList.length; i < len; i++) {
+      if (configList[i].value === choiceVal) {
+        return configList[i];
+      }
     }
   }
-  return '';
+  return {}
+}
+
+function getGitUrl(choiceVal, configList=choices) {
+  return getChoiceItem.url;
 }
 
 program
@@ -326,24 +332,93 @@ program
       } else {
         spinner.succeed();
         console.log(symbols.success, chalk.green(`fetch the fecli config success`));
-        // copyDir(fromUrl+'/config.json', './', function (error) {
-        //   spinner.succeed();
-        //
-        // })
-
-        // TODO 引入 最新的config.json 对比已有的 version
+        // 引入 最新的config.json 对比已有的 version
         // 如果版本高，则复制
         const fecliConfigVersion = fecliConfig.version
+        try{
+          const newFeConfig = JSON.parse(fs.readFileSync(fromUrl+'/config.json', 'utf8'))
+          console.log(newFeConfig)
+          // 显示更新的选项
+          const needUpdate = semver.gt(newFeConfig.version, fecliConfigVersion)
+          if(needUpdate) {
+            spinner.start('start replace the fecli config file...\n');
+            copyDir(fromUrl + '/config.json', './lib/config.json', function (error) {
+              spinner.succeed();
 
-        // 显示更新的选项
-
+              if (error) {
+                console.log(symbols.success, chalk.green(`replace the fecli config file failed:`));
+                console.log(error)
+              } else {
+                console.log(symbols.success, chalk.green(`replace the fecli config file success`));
+                //
+                showConfigPrompt(require('../lib/config.json'))
+              }
+            })
+          }else{
+            showConfigPrompt(require('../lib/config.json'))
+          }
+        }catch (e){
+          console.log(e)
+        }
       }
     })
-
-
-
   });
 
+function showConfigPrompt(feCofigObj){
+  inquirer.prompt([
+    {
+      type: "list",
+      name: 'selected',
+      message: 'Please select the config file to update',
+      choices: feCofigObj.choices
+    },
+  ]).then((answers) => {
+    console.log('answers')
+    console.log(answers)
+    const selectInfo = getChoiceItem(answers.selected, fecliConfig.choices)
+    const cacheDir = feCofigObj.cache
+    console.log(cacheDir)
+    const fromUrl = path.resolve(__dirname+'/'+cacheDir)
+    console.log('fromUrl:'+fromUrl)
+    const spinner = ora();
+    rm(fromUrl)
+    spinner.start('fetch the '+answers.selected+' config from github...\n');
+    download(selectInfo.url, fromUrl, {clone: true, checkout:false, depth:1}, (err) => {
+      rm(fromUrl+'/.git')
+      if (err) {
+        console.log(err)
+        spinner.fail(symbols.error);
+      } else {
+        spinner.succeed();
+        console.log(symbols.success, chalk.green(`fetch the ${answers.selected} config success`));
+        // 引入 最新的config.json 对比已有的 version
+        // 如果版本高，则复制
+        try{
+          const srcFile = fromUrl+'/'+selectInfo.src
+          const distFile = './'+selectInfo.dist
+          const newConfig = JSON.parse(fs.readFileSync(srcFile, 'utf8'))
+          const oldConfig = JSON.parse(fs.readFileSync(distFile, 'utf8'))
+          // 显示更新的选项
+          const needUpdate = semver.gt(newConfig.version, oldConfig.version)
+          if(needUpdate) {
+            spinner.start(`start replace the ${selectInfo.src} config file...\n`);
+            copyDir(srcFile, distFile, function (error) {
+              spinner.succeed();
+              if (error) {
+                console.log(symbols.success, chalk.green(`replace the ${selectInfo.src} config file failed:`));
+                console.log(error)
+              } else {
+                console.log(symbols.success, chalk.green(`replace the ${selectInfo.src} config file success`));
+              }
+            })
+          }
+        }catch (e){
+          console.log(e)
+        }
+      }
+    })
+  })
+}
 
 // enhance common error messages
 const enhanceErrorMessages = require('../lib/util/enhanceErrorMessages');
