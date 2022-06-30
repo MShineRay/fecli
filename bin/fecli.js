@@ -395,7 +395,7 @@ function showConfigPrompt(feCofigObj){
         // 如果版本高，则复制
         try{
           const srcFile = fromUrl+'/'+selectInfo.src
-          const distFile = './'+selectInfo.dist
+          const distFile = path.resolve(__dirname+'/../'+selectInfo.dist)
           const newConfig = JSON.parse(fs.readFileSync(srcFile, 'utf8'))
           const oldConfig = JSON.parse(fs.readFileSync(distFile, 'utf8'))
           // 显示更新的选项
