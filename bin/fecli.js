@@ -57,7 +57,7 @@ function getChoiceItem(choiceVal, configList=choices){
 }
 
 function getGitUrl(choiceVal, configList=choices) {
-  return getChoiceItem.url;
+  return getChoiceItem(choiceVal, configList).url;
 }
 
 program
