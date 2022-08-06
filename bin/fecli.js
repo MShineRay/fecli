@@ -366,10 +366,9 @@ program
 // fe install
 program
   .command('install')
-  .option('-env, --env <gitUrl>', 'npm install -g xxx(eg. fe install -g pnpm')
+  .option('-e, --env <gitUrl>', 'npm install -g xxx(eg. fe install -g pnpm')
   .description(`Install front-end related npm global packages`)
   .action((options) => {
-    console.log(options.env)
     let defaultPrompt = []
     const choices = [
       {
@@ -394,7 +393,7 @@ program
       },
       {
         value: "gulp-cli",
-        name:"gulp-cli2"
+        name:"gulp-cli"
       },
       {
         value: "create-react-app",

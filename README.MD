@@ -33,6 +33,7 @@ npm i @a0znpm/fecli -g
      server                          start node static http service by server(more about live-server)
      check-version                   check the @a0znpm/fecli version.
      config                          update config file of fecli
+     install [options]               Install front-end related npm global packages
 ~~~
 
 ### Example
@@ -126,6 +127,19 @@ npm i @a0znpm/fecli -g
      
    > fe inject -c https://github.com/UserName/ProjectTemplateXXX
 
+~~~
+
+~~~
+> fe install
+> ? Please select the npm package that needs to be installed globally (Press <space> to select, <a> to toggle all, <i> to invert 
+   selection)
+   ❯◉ nrm
+    ◉ yarn
+    ◉ pnpm
+    ◉ @vue/cli
+    ◉ nuxt
+    ◉ gulp-cli
+    ◉ create-react-app
 ~~~
 
 ### Knowledge Point
