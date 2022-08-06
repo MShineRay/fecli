@@ -6,7 +6,7 @@ Front-End Command Line Interface
     1、npm发布后全局执行
       * npm adduser a0znpm
       * npm publish --access public
-    2、在cli内部调试
+    2、在cli内部调试vue
       * cd fecli
       * npm run fe 
 ~~~

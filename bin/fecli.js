@@ -40,7 +40,6 @@ let choices = config.choices;
 const sglConfig = require('../lib/sgl.config.json');
 let sglChoices = sglConfig.choices;
 const fecliConfig = require('../lib/config.json');
-let fecliConfigChoices = fecliConfig.choices;
 
 const rm = require('rimraf').sync
 const validateProjectName = require('validate-npm-package-name')
@@ -360,6 +359,65 @@ program
         }catch (e){
           console.log(e)
         }
+      }
+    })
+  });
+
+// fe install
+program
+  .command('install')
+  .option('-env, --env <gitUrl>', 'npm install -g xxx(eg. fe install -g pnpm')
+  .description(`Install front-end related npm global packages`)
+  .action((options) => {
+    console.log(options.env)
+    let defaultPrompt = []
+    const choices = [
+      {
+        "value": "nrm",
+        "name": "nrm"
+      },
+      {
+        "value": "yarn",
+        "name": "yarn"
+      },
+      {
+        "value": "pnpm",
+        "name": "pnpm"
+      },
+      {
+        value: "@vue/cli",
+        name:"@vue/cli"
+      },
+      {
+        value: "nuxt",
+        name:"nuxt"
+      },
+      {
+        value: "gulp-cli",
+        name:"gulp-cli2"
+      },
+      {
+        value: "create-react-app",
+        name:"create-react-app"
+      }
+    ]
+    defaultPrompt.push({
+      type: "checkbox",
+      name: 'selected',
+      message: 'Please select the npm package that needs to be installed globally',
+      choices: choices
+    })
+    inquirer.prompt(defaultPrompt).then((answers) => {
+      const shell = require('shelljs');
+      for(let i=0, len=answers.selected.length; i<len; i++){
+        let item = answers.selected[i]
+        const child = shell.exec('npm i -g '+item, {
+          async: true
+        });
+        console.log('begin exec: npm install -g '+ item)
+        child.stdout.on('data', function (data) {
+          console.log(`npm install -g ${item} data:`, data);
+        });
       }
     })
   });

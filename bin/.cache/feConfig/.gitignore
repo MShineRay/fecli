@@ -1,6 +1,7 @@
 .DS_Store
 .svn
 .git
+node_modules/
 
 # local env files
 .env.local
@@ -43,6 +44,3 @@ out
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
-.cache/*
-
-node_modules
